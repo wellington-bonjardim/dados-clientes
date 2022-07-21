@@ -6,11 +6,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- STYLES -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="servico.css">
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/438b2365a2.js" crossorigin="anonymous"></script>
 
-    <title>DADOS DOS USUÁRIOS</title>
+    <title>CLIENTES</title>
 </head>
 <body>
     
+    <header class="header-principal">
+        <h1>INFORMAÇÕES DOS CLIENTES E SERVIÇOS</h1>
+    </header>
+    <div class="container">
+        <div class="button">
+            <button id="cadastrar">Cadastrar</button>
+        </div>
+
+        <div class="conteudo">
+            <table class="clientes">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Contato</th>
+                        <th>Serviço</th>
+                        <th>Valor</th>
+                        <th>Situação</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sérgio</td>
+                        <td>(21)91234-5678</td>
+                        <td>Troca de amortecedor</td>
+                        <td>R$ 350</td>
+                        <td>PAGO</td>
+                        <td>
+                            <button class="pagou">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="excluir">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>Nelson</td>
+                        <td>(21)95789-1234</td>
+                        <td>Alinhamento e balanceamento</td>
+                        <td>R$ 200</td>
+                        <td>PAGO</td>
+                        <td>
+                            <button class="pagou">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="excluir">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>Vinícius</td>
+                        <td>(21)97789-5643</td>
+                        <td>Cabeçote</td>
+                        <td>R$ 500</td>
+                        <td>PENDENTE</td>
+                        <td>
+                            <button class="pagou">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="excluir">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+    
+    
+                    <!-- <tr>
+                        <td></td> NOME
+                        <td></td> CONTATO
+                        <td></td> SERVIÇO
+                        <td></td> VALOR
+                        <td>
+                            <select name="situacao" id="situacao">
+                                <option>---SELECIONE---</option>
+                                <option value="1">PAGO</option>
+                                <option value="2">PENDENTE</option>
+                            </select>
+                        </td>
+                    </tr> -->
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        <!-------------------- NOVO SERVIÇO -------------------->
+        <div class="servico">
+            <div class="servico-content">
+
+                <header class="header-secundario">
+                    <h2>Novo Serviço</h2>
+                    <span class="servico-fechar close-icon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+                </header>
+                
+                <form class="servico-form">
+                    <input type="text" class="servico-campo" placeholder="Nome do cliente" autofocus>
+                    <input type="text" class="servico-campo" placeholder="Telefone">
+                    <input type="text" class="servico-campo" placeholder="Serviço realizado">
+                    <input type="text" class="servico-campo" placeholder="Valor total">
+                    <select name="situacao" id="situacao">
+                        <option>---SITUAÇÃO---</option>
+                        <option value="1">PAGO</option>
+                        <option value="2">PENDENTE</option>
+                    </select>
+                </form>
+
+                <footer class="servico-footer">
+                    <button class="salvar">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                    </button>
+                    <button class="cancelar close-icon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </footer>
+
+            </div>
+        </div>
 
     <script src="main.js"></script>
 </body>
