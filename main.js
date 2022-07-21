@@ -1,18 +1,14 @@
 const cadastrar = document.querySelector('#cadastrar')
 const servico = document.querySelector('.servico')
 const fecharNovoServico = document.querySelectorAll('.close-icon')
-/* const fecharNovoServico2 = document.querySelector('.cancelar') */
+const servicoContainer = document.querySelector('#servico')
 
 cadastrar.addEventListener('click', () => {
     servico.classList.toggle('ativar-servico')
 })
 
-fecharNovoServico.foreach(servico => {
+fecharNovoServico.forEach(servico => {
     servico.addEventListener('click', () => {
-        this.classList.toggle('ativar-servico')
+        servicoContainer.classList.toggle('ativar-servico')
     })
 })
-
-/* fecharNovoServico2.addEventListener('click', () => {
-    servico.classList.toggle('ativar-servico')
-}) */
