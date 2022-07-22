@@ -19,7 +19,7 @@
 <body>
     
     <header class="header-principal">
-        <h1>INFORMAÇÕES DOS CLIENTES E SERVIÇOS</h1>
+        <h1>OFICINA FLORIANÓPOLIS</h1>
     </header>
     <div class="container">
         <div class="button">
@@ -30,6 +30,7 @@
             <table class="clientes">
                 <thead>
                     <tr>
+                        <th>Data</th>
                         <th>Nome</th>
                         <th>Contato</th>
                         <th>Serviço</th>
@@ -38,8 +39,9 @@
                         <th>Ação</th>
                     </tr>
                 </thead>
-                <tbody>
+                <!-- <tbody>
                     <tr>
+                        <td>22/07/2022</td>
                         <td>Sérgio</td>
                         <td>(21)91234-5678</td>
                         <td>Troca de amortecedor</td>
@@ -56,6 +58,7 @@
                     </tr>
     
                     <tr>
+                        <td>22/07/2022</td>
                         <td>Nelson</td>
                         <td>(21)95789-1234</td>
                         <td>Alinhamento e balanceamento</td>
@@ -72,6 +75,7 @@
                     </tr>
     
                     <tr>
+                        <td>22/07/2022</td>
                         <td>Vinícius</td>
                         <td>(21)97789-5643</td>
                         <td>Cabeçote</td>
@@ -85,7 +89,7 @@
                                 <i class="fa-regular fa-trash-can"></i>
                             </button>
                         </td>
-                    </tr>
+                    </tr> -->
     
     
                     <!-- <tr>
@@ -119,14 +123,16 @@
                 </header>
                 
                 <form class="servico-form">
-                    <input type="text" class="servico-campo" placeholder="Nome do cliente" autofocus>
-                    <input type="text" class="servico-campo" placeholder="Telefone">
-                    <input type="text" class="servico-campo" placeholder="Serviço realizado">
-                    <input type="text" class="servico-campo" placeholder="Valor total">
+                    <input type="date" class="servico-campo" id="data" >
+                    <input type="text" class="servico-campo" id="nome" placeholder="Nome do cliente">
+                    <input type="text" class="servico-campo" id="contato" placeholder="Telefone">
+                    <input type="text" class="servico-campo" id="servicoRealizado" placeholder="Serviço realizado">
+                    <input type="text" class="servico-campo" id="valor" placeholder="Valor total">
+                    
                     <select name="situacao" id="situacao">
                         <option>---SITUAÇÃO---</option>
-                        <option value="1">PAGO</option>
-                        <option value="2">PENDENTE</option>
+                        <option value="PAGO">PAGO</option>
+                        <option value="PENDENTE">PENDENTE</option>
                     </select>
                 </form>
 

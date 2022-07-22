@@ -125,7 +125,15 @@
 
 }
 
+/*--------------- FORM ERRO --------------- */
+.erro {
+    border: 2px solid red;
+}
+
+.erro::placeholder {
+    color: red;
+}
+
 .servico-footer {
     margin: 0 auto;
 }
-

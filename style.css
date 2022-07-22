@@ -25,6 +25,8 @@ body {
     text-align: center;
     font-size: 1.2rem;
     margin-bottom: 40px;
+    letter-spacing: 0.2rem;
+
 }
 
 /*--------------- CONTAINER --------------- */
@@ -42,7 +44,7 @@ body {
 
 /*--------------- BUTTON & BUTTON:HOVER --------------- */
 .button button {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 10px 15px;
     font-weight: bold;
     font-size: 1rem;
