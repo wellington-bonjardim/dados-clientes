@@ -6,7 +6,7 @@ const servicoForm = document.querySelector('.servico-form')
 const servicoInput = document.querySelector('.servico-campo') /*TÁ INDO SÓ NO PRIMEIRO PORQUE TEM QUE USAR O QUERYSELECTORALL. AO USAR ISSO, NÓS TEREMOS COMO RETORNO UM ARRAY, DAÍ DEVEREMOS USAR O FOREACH! */
 const salvarServico = document.querySelector('.salvar')
 const conteudoContainer = document.querySelector('.conteudo')
-//const clientesTabela = document.querySelector('.clientes')
+const clientesTabela = document.querySelector('.clientes')
  
 let dataServico = document.querySelector('#data')
 let nomeCliente = document.querySelector('#nome')
@@ -39,17 +39,43 @@ const adicionarServico = () => {
     }
 
     //CRIANDO TABELA DINAMICA
-    let tabelaDiv = document.createElement('div')
+    /* let tabelaDiv = document.createElement('div')
     tabelaDiv.classList.add('tabelaDiv')
     let tabela = document.createElement('table')
-    let cabecalho = document.createElement('thead')
+    let cabecalho = document.createElement('thead') */
     let informacoes = document.createElement('tbody')
 
-    tabelaDiv.appendChild(tabela)
-    tabela.appendChild(cabecalho)
+    /* tabela.appendChild(cabecalho)
     tabela.appendChild(informacoes)
+    tabelaDiv.appendChild(tabela) */
 
-    conteudoContainer.appendChild(tabelaDiv)
+    clientesTabela.appendChild(informacoes)
+
+    //CABEÇALHO DA TABELA
+    /* const cabecalhoTabela = createElement('tr')
+    const cabecalhoData = document.createElement('th')
+    cabecalhoData.innerHTML = "Data"
+    const cabecalhoNome = document.createElement('th')
+    cabecalhoNome.innerHTML = "Nome"
+    const cabecalhoContato = document.createElement('th')
+    cabecalhoContato.innerHTML = "Contato"
+    const cabecalhoServicoFeito = document.createElement('th')
+    cabecalhoServicoFeito.innerHTML = "Servico"
+    const cabecalhoValor = document.createElement('th')
+    cabecalhoValor.innerHTML = "Valor"
+    const cabecalhoSituacao = document.createElement('th')
+    cabecalhoSituacao.innerHTML = "Situação"
+    const cabecalhoAcao = document.createElement('th')
+    cabecalhoAcao.innerHTML = "Ação"
+
+    cabecalhoTabela.appendChild(cabecalhoData)
+    cabecalhoTabela.appendChild(cabecalhoNome)
+    cabecalhoTabela.appendChild(cabecalhoContato)
+    cabecalhoTabela.appendChild(cabecalhoServicoFeito)
+    cabecalhoTabela.appendChild(cabecalhoValor)
+    cabecalhoTabela.appendChild(cabecalhoSituacao)
+    cabecalhoTabela.appendChild(cabecalhoAcao)
+    cabecalho.appendChild(cabecalhoTabela) */
 
     //CONTEUDO DA TABELA
     let infoServico = document.createElement('tr')
@@ -65,6 +91,8 @@ const adicionarServico = () => {
     dadosClientes_valor.innerText = valorTotal.value
     let dadosClientes_situacao = document.createElement('td')
     dadosClientes_situacao.innerText = situacaoCliente.value
+    let dadosClientes_acao = document.createElement('td')
+    
 
     infoServico.appendChild(dadosCliente_data)
     infoServico.appendChild(dadosClientes_nome)
@@ -81,8 +109,9 @@ const adicionarServico = () => {
     const excluirServico = document.createElement('i')
     excluirServico.classList.add('fa-regular')
     excluirServico.classList.add('fa-trash-can')
-    infoServico.appendChild(editarServico)
-    infoServico.appendChild(excluirServico)
+    dadosClientes_acao.appendChild(editarServico)
+    dadosClientes_acao.appendChild(excluirServico)
+    infoServico.appendChild(dadosClientes_acao)
 
     dataServico.value = ''
     nomeCliente.value = ''

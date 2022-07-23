@@ -39,7 +39,7 @@ body {
 }
 
 /*--------------- BUTTON & BUTTON:HOVER --------------- */
-.button button {
+.button-cadastrar button {
     margin-bottom: 20px;
     padding: 10px 15px;
     font-weight: bold;
@@ -53,7 +53,7 @@ body {
     transition: 0.3s;
 }
 
-.button button:hover {
+.button-cadastrar button:hover {
     background-color: blue;
     box-shadow: 0 0 5px black;
 }
@@ -91,7 +91,7 @@ body {
     width: 100%;
 }
 
-.clientes {
+.clientes, .tabelaDiv table {
     width: 100%;
     user-select: none;
     text-align: center;
@@ -105,10 +105,18 @@ body {
     letter-spacing: 0.1rem;
 }
 
-.clientes td {
-    border-bottom: 1px solid black;
-    height: 50px;
+/* .tabelaDiv tbody {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+        
 }
+
+.tabelaDiv td {
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+    width: 100vw;
+} */
 
 tr:hover {
     background: #c3cee6;
