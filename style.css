@@ -9,9 +9,7 @@
 body {
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    
-    
+    flex-direction: column;   
 }
 /*--------------- HEADER --------------- */
 .header-principal {
@@ -24,9 +22,7 @@ body {
     justify-content: center;
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 40px;
     letter-spacing: 0.2rem;
-
 }
 
 /*--------------- CONTAINER --------------- */
@@ -37,7 +33,7 @@ body {
     align-items: flex-start;
     margin: 5vh auto;
     padding: 20px;
-    width: 90%;
+    width: 97%;
     box-shadow: 2px 2px 10px;
     border-radius: 10px;
 }
@@ -62,7 +58,7 @@ body {
     box-shadow: 0 0 5px black;
 }
 
-.conteudo button {
+.conteudo i {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -71,20 +67,21 @@ body {
     cursor: pointer;
 }
 
-.pagou {
+.fa-check {
     background-color: rgb(0, 173, 0);
+    margin-right: 5px;
 }
 
-.pagou:hover {
+.fa-check:hover {
     background-color: rgb(0, 221, 0);
     box-shadow: 0 0 2px black;
 }
 
-.excluir {
+.fa-trash-can {
     background: rgb(209, 0, 0);
 }
 
-.excluir:hover {
+.fa-trash-can:hover {
     background: rgb(255, 0, 0);
     box-shadow: 0 0 2px black;
 }

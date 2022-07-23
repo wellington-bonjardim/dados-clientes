@@ -6,7 +6,8 @@ const servicoForm = document.querySelector('.servico-form')
 const servicoInput = document.querySelector('.servico-campo') /*TÁ INDO SÓ NO PRIMEIRO PORQUE TEM QUE USAR O QUERYSELECTORALL. AO USAR ISSO, NÓS TEREMOS COMO RETORNO UM ARRAY, DAÍ DEVEREMOS USAR O FOREACH! */
 const salvarServico = document.querySelector('.salvar')
 const conteudoContainer = document.querySelector('.conteudo')
-
+//const clientesTabela = document.querySelector('.clientes')
+ 
 let dataServico = document.querySelector('#data')
 let nomeCliente = document.querySelector('#nome')
 let contatoCliente = document.querySelector('#contato')
@@ -15,6 +16,10 @@ let valorTotal = document.querySelector('#valor')
 let situacaoCliente = document.querySelector('#situacao')
 
 cadastrar.addEventListener('click', () => {
+    servico.classList.toggle('ativar-servico')
+})
+
+salvarServico.addEventListener('click', () => {
     servico.classList.toggle('ativar-servico')
 })
 
@@ -34,14 +39,17 @@ const adicionarServico = () => {
     }
 
     //CRIANDO TABELA DINAMICA
+    let tabelaDiv = document.createElement('div')
+    tabelaDiv.classList.add('tabelaDiv')
     let tabela = document.createElement('table')
     let cabecalho = document.createElement('thead')
-    let conteudo = document.createElement('tbody')
+    let informacoes = document.createElement('tbody')
 
+    tabelaDiv.appendChild(tabela)
     tabela.appendChild(cabecalho)
-    tabela.appendChild(conteudo)
+    tabela.appendChild(informacoes)
 
-    conteudoContainer.appendChild(tabela)
+    conteudoContainer.appendChild(tabelaDiv)
 
     //CONTEUDO DA TABELA
     let infoServico = document.createElement('tr')
@@ -60,19 +68,19 @@ const adicionarServico = () => {
 
     infoServico.appendChild(dadosCliente_data)
     infoServico.appendChild(dadosClientes_nome)
+    infoServico.appendChild(dadosClientes_contato)
     infoServico.appendChild(dadosClientes_servico)
     infoServico.appendChild(dadosClientes_valor)
-    infoServico.appendChild(dadosClientes_contato)
     infoServico.appendChild(dadosClientes_situacao)
-    conteudo.appendChild(infoServico)
+    informacoes.appendChild(infoServico)
 
     //BOTÕES DE EDITAR E EXCLUIR
     const editarServico = document.createElement('i')
     editarServico.classList.add('fa-solid')
-    editarServico.classList.add('fa-floppy-disk')
+    editarServico.classList.add('fa-check')
     const excluirServico = document.createElement('i')
-    excluirServico.classList.add('fa-solid')
-    excluirServico.classList.add('fa-xmark')
+    excluirServico.classList.add('fa-regular')
+    excluirServico.classList.add('fa-trash-can')
     infoServico.appendChild(editarServico)
     infoServico.appendChild(excluirServico)
 
