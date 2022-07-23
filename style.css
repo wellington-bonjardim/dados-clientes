@@ -105,18 +105,11 @@ body {
     letter-spacing: 0.1rem;
 }
 
-/* .tabelaDiv tbody {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-        
-}
-
 .tabelaDiv td {
     border-bottom: 1px solid #ccc;
     height: 50px;
     width: 100vw;
-} */
+}
 
 tr:hover {
     background: #c3cee6;

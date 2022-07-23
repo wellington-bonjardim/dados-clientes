@@ -21,6 +21,10 @@ cadastrar.addEventListener('click', () => {
 
 salvarServico.addEventListener('click', () => {
     servico.classList.toggle('ativar-servico')
+    /*ACHO QUE TENHO QUE CRIAR AQUI O COMANDO PARA SALVAR AS INFORMAÇÕES NO LOCALSTORAGE */
+    
+    localStorage.setItem('dados_servico', JSON.stringify(servicoForm))
+    
 })
 
 fecharNovoServico.forEach(servico => {
@@ -31,6 +35,8 @@ fecharNovoServico.forEach(servico => {
 
 const validarInput = () => servicoInput.value.trim().length > 0
 
+let informacoes = document.createElement('tbody') /*CRIEI ESSA VARIÁVEL AQUI FORA PARA PODER CONSEGUIR CHAMÁ-LA NO salvarServico.addEventListener. ORIGINALMENTE EU TINHA CRIADO ESSA VARIÁVEL NA LINHA 48, ANTES DE informacoes.classList.add('tabelaDiv') */
+
 const adicionarServico = () => {
     const inputValido = validarInput()
     
@@ -39,43 +45,10 @@ const adicionarServico = () => {
     }
 
     //CRIANDO TABELA DINAMICA
-    /* let tabelaDiv = document.createElement('div')
-    tabelaDiv.classList.add('tabelaDiv')
-    let tabela = document.createElement('table')
-    let cabecalho = document.createElement('thead') */
-    let informacoes = document.createElement('tbody')
-
-    /* tabela.appendChild(cabecalho)
-    tabela.appendChild(informacoes)
-    tabelaDiv.appendChild(tabela) */
+    
+    informacoes.classList.add('tabelaDiv')
 
     clientesTabela.appendChild(informacoes)
-
-    //CABEÇALHO DA TABELA
-    /* const cabecalhoTabela = createElement('tr')
-    const cabecalhoData = document.createElement('th')
-    cabecalhoData.innerHTML = "Data"
-    const cabecalhoNome = document.createElement('th')
-    cabecalhoNome.innerHTML = "Nome"
-    const cabecalhoContato = document.createElement('th')
-    cabecalhoContato.innerHTML = "Contato"
-    const cabecalhoServicoFeito = document.createElement('th')
-    cabecalhoServicoFeito.innerHTML = "Servico"
-    const cabecalhoValor = document.createElement('th')
-    cabecalhoValor.innerHTML = "Valor"
-    const cabecalhoSituacao = document.createElement('th')
-    cabecalhoSituacao.innerHTML = "Situação"
-    const cabecalhoAcao = document.createElement('th')
-    cabecalhoAcao.innerHTML = "Ação"
-
-    cabecalhoTabela.appendChild(cabecalhoData)
-    cabecalhoTabela.appendChild(cabecalhoNome)
-    cabecalhoTabela.appendChild(cabecalhoContato)
-    cabecalhoTabela.appendChild(cabecalhoServicoFeito)
-    cabecalhoTabela.appendChild(cabecalhoValor)
-    cabecalhoTabela.appendChild(cabecalhoSituacao)
-    cabecalhoTabela.appendChild(cabecalhoAcao)
-    cabecalho.appendChild(cabecalhoTabela) */
 
     //CONTEUDO DA TABELA
     let infoServico = document.createElement('tr')
@@ -113,12 +86,28 @@ const adicionarServico = () => {
     dadosClientes_acao.appendChild(excluirServico)
     infoServico.appendChild(dadosClientes_acao)
 
+    editarServico.addEventListener('click', () => {
+        if(situacaoCliente.value = 'PENDENTE') {
+            console.log('FUNÇÃO ATÉ AQUI FUNCIONOU')
+
+            situacaoCliente.value = "PAGO" /*A FUNÇÃO FUNCIONA, MAS ESSE COMANDO ESTÁ ERRADO. DÚVIDA: AO CLICAR NO BOTÃO, COMO SUBSTITUIR O VALUE DO SELECT PARA "PAGO" QUANDO ESTIVER "PENDENTE" */
+
+            console.log('FUNÇÃO FUNCIONOU')
+        }
+    })
+    console.log('AQUI FUNCIONOU')
+    excluirServico.addEventListener('click', () => removerServico())
+
     dataServico.value = ''
     nomeCliente.value = ''
     contatoCliente.value = ''
     servicoFeito.value = ''
     valorTotal.value = ''
+
+    localStorage.setItem('dados_servico', JSON.stringify(servicoForm))
 }
+
+
 
 const mudarEstadoInput = () => {
     const inputValido = validarInput()
