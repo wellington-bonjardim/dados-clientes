@@ -23,7 +23,7 @@ salvarServico.addEventListener('click', () => {
     servico.classList.toggle('ativar-servico')
     /*ACHO QUE TENHO QUE CRIAR AQUI O COMANDO PARA SALVAR AS INFORMAÇÕES NO LOCALSTORAGE */
     
-    localStorage.setItem('dados_servico', JSON.stringify(servicoForm))
+    localStorage.setItem('dados_servico', JSON.stringify(informacoes))
     
 })
 
@@ -104,10 +104,8 @@ const adicionarServico = () => {
     servicoFeito.value = ''
     valorTotal.value = ''
 
-    localStorage.setItem('dados_servico', JSON.stringify(servicoForm))
+    //localStorage.setItem('dados_servico', JSON.stringify(servicoForm))
 }
-
-
 
 const mudarEstadoInput = () => {
     const inputValido = validarInput()
