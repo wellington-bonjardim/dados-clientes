@@ -20,11 +20,35 @@ cadastrar.addEventListener('click', () => {
 })
 
 salvarServico.addEventListener('click', () => {
-    servico.classList.toggle('ativar-servico')
-    /*ACHO QUE TENHO QUE CRIAR AQUI O COMANDO PARA SALVAR AS INFORMAÇÕES NO LOCALSTORAGE */
+
+    let infoClientes = {
+        "Data": dataServico.value,
+        "Nome": nomeCliente.value,
+        "Contato": contatoCliente.value,
+        "Serviço": servicoFeito.value,
+        "Valor": valorTotal.value,
+        "Situação": situacaoCliente.value
+    }
     
-    localStorage.setItem('dados_servico', JSON.stringify(informacoes))
-    
+    //ATRIBUINDO O LOCALSTORAGE À UMA VARIÁVEL
+    let ls = localStorage.getItem('infos')
+
+    //VERIFICANDO SE O LOCALSTORAGE JÁ EXISTE
+    if(ls) {
+        //TRANSFORMA O LS EM ARRAY
+        let json = JSON.parse(ls)
+        //ADICIONA AS INFORMAÇÕES DOS CLIENTES À ESSE ARRAY
+        json.push(infoClientes)
+        //TRANSFORMA O ARRAY EM STRING
+        json = JSON.stringify(json)
+        //ENVIA OS NOVOS VALORES AO LOCALSTORAGE
+        localStorage.setItem('infos', json)
+    } else {
+        localStorage.setItem('infos', JSON.stringify([infoClientes]))
+    }
+
+
+    servico.classList.toggle('ativar-servico')    
 })
 
 fecharNovoServico.forEach(servico => {
@@ -35,7 +59,7 @@ fecharNovoServico.forEach(servico => {
 
 const validarInput = () => servicoInput.value.trim().length > 0
 
-let informacoes = document.createElement('tbody') /*CRIEI ESSA VARIÁVEL AQUI FORA PARA PODER CONSEGUIR CHAMÁ-LA NO salvarServico.addEventListener. ORIGINALMENTE EU TINHA CRIADO ESSA VARIÁVEL NA LINHA 48, ANTES DE informacoes.classList.add('tabelaDiv') */
+
 
 const adicionarServico = () => {
     const inputValido = validarInput()
@@ -45,7 +69,7 @@ const adicionarServico = () => {
     }
 
     //CRIANDO TABELA DINAMICA
-    
+    let informacoes = document.createElement('tbody')
     informacoes.classList.add('tabelaDiv')
 
     clientesTabela.appendChild(informacoes)
