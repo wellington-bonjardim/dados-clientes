@@ -119,13 +119,20 @@ function imprimeServicoLocalStorage(servico) {
                 let modificaElemento = recuperaArray[0].situacao
                 modificaElemento = situacaoAtual.innerText
                 console.log(modificaElemento)
-
+                
+                
             } else {
                 alert('O serviço já foi pago!')
             }
     })
-    
-    excluirServico.addEventListener('click', () => removerServico())
+
+    excluirServico.addEventListener('click', () => {
+        let excluir = excluirServico.parentNode.parentNode
+        console.log(excluir)
+        excluir.remove()
+        
+        localStorage.removeItem('infos') //ASSIM ESTOU EXCLUINDO TODO O ARRAY COM TODAS AS INFORMAÇÕES, E NÃO UMA EM ESPECÍFICO 
+    })
 }
 
 const adicionarServico = () => {
