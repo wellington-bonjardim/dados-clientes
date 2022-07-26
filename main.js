@@ -106,7 +106,7 @@ function imprimeServicoLocalStorage(servico) {
     dadosClientes_acao.appendChild(excluirServico)
     infoServico.appendChild(dadosClientes_acao)
 
-    editarServico.addEventListener('click', () => { //ACHO QUE ESTA FUNÇÃO TEM QUE IR PARA O ESCOPO GLOBAL
+    editarServico.addEventListener('click', () => {
             let editar = editarServico.parentNode.parentNode
             let situacaoAtual = editar.childNodes[5]
             let recuperaArray = JSON.parse(localStorage.getItem('infos'))
@@ -119,7 +119,7 @@ function imprimeServicoLocalStorage(servico) {
                 let modificaElemento = recuperaArray[0].situacao
                 modificaElemento = situacaoAtual.innerText
                 console.log(modificaElemento)
-                
+
             } else {
                 alert('O serviço já foi pago!')
             }
