@@ -122,9 +122,17 @@
 .servico-campo:focus {
     border: 2px solid rgb(0, 0, 204);
     box-shadow: 0 0 3px rgb(0, 0, 204);
-
+    width: calc(50% - 10px);
+    height: 40px;
 }
 
+.servico-form select {
+    padding: 0 10px;
+    width: calc(50% - 10px);
+    height: 40px;
+    font-size: 0.9rem;
+
+}
 /*--------------- FORM ERRO --------------- */
 .erro {
     border: 2px solid red;
