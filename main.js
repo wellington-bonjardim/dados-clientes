@@ -16,12 +16,12 @@ let valorTotal = document.querySelector('#valor')
 let situacaoCliente = document.querySelector('#situacao')
 
 //ATRIBUINDO O LOCALSTORAGE À UMA VARIÁVEL
-let ls = localStorage.getItem('infos')
+let dadosLocalStorage = localStorage.getItem('infos')
 //TRANSFORMA O LS EM ARRAY
-json = JSON.parse(ls) || []
-console.log(json)
+dadosInformadosCliente = JSON.parse(dadosLocalStorage) || []
+console.log(dadosInformadosCliente)
 
-json.forEach((element) => {
+dadosInformadosCliente.forEach((element) => {
     imprimeServicoLocalStorage(element)
 })
 
@@ -41,18 +41,19 @@ salvarServico.addEventListener('click', () => {
     }
     
     //VERIFICANDO SE O LOCALSTORAGE JÁ EXISTE
-    if(ls) {
+    if(dadosLocalStorage) {
         //ADICIONA AS INFORMAÇÕES DOS CLIENTES À ESSE ARRAY
-        json.push(infoClientes)
+        dadosInformadosCliente.push(infoClientes)
         //TRANSFORMA O ARRAY EM STRING
-        json = JSON.stringify(json)
+        dadosInformadosCliente = JSON.stringify(dadosInformadosCliente)
         //ENVIA OS NOVOS VALORES AO LOCALSTORAGE
-        localStorage.setItem('infos', json)
+        localStorage.setItem('infos', dadosInformadosCliente)
     } else {
         localStorage.setItem('infos', JSON.stringify([infoClientes]))
     }
 
     servico.classList.toggle('ativar-servico')    
+    botaoEditarServico()
 })
 
 fecharNovoServico.forEach(servico => {
@@ -106,33 +107,24 @@ function imprimeServicoLocalStorage(servico) {
     dadosClientes_acao.appendChild(excluirServico)
     infoServico.appendChild(dadosClientes_acao)
 
-    editarServico.addEventListener('click', () => {
-            let editar = editarServico.parentNode.parentNode
-            let situacaoAtual = editar.childNodes[5]
-            let recuperaArray = JSON.parse(localStorage.getItem('infos'))
-           
-            console.log(recuperaArray[0].situacao)
-
-            if(situacaoAtual.innerText === 'PENDENTE') {
-                situacaoAtual.innerText = 'PAGO'
-                
-                let modificaElemento = recuperaArray[0].situacao
-                modificaElemento = situacaoAtual.innerText
-                console.log(modificaElemento)
-                
-                
-            } else {
-                alert('O serviço já foi pago!')
-            }
-    })
+    editarServico.addEventListener('click', () => botaoEditarServico())
 
     excluirServico.addEventListener('click', () => {
         let excluir = excluirServico.parentNode.parentNode
         console.log(excluir)
         excluir.remove()
         
-        localStorage.removeItem('infos') //ASSIM ESTOU EXCLUINDO TODO O ARRAY COM TODAS AS INFORMAÇÕES, E NÃO UMA EM ESPECÍFICO 
+        localStorage.removeItem('infos') //TODO: ASSIM ESTOU EXCLUINDO TODO O ARRAY COM TODAS AS INFORMAÇÕES, E NÃO UMA EM ESPECÍFICO 
     })
+}
+
+const botaoEditarServico = (editarServico) => {
+    servico.classList.toggle('ativar-servico')
+    /*TODO: Desenvolver aqui uma lógica para a pág. servico abrir com os dados já preenchidos.  */
+
+    /*TODO: Além disso, preciso desenvolver uma forma desse novo valor substituir a linha inteira e não criar uma nova*/
+    
+     
 }
 
 const adicionarServico = () => {
@@ -190,6 +182,7 @@ const adicionarServico = () => {
     servicoFeito.value = ''
     valorTotal.value = ''
 
+    botaoEditarServico()
 }
 
 const mudarEstadoInput = () => {
